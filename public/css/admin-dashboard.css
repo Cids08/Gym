@@ -1,0 +1,633 @@
+/* RESET AND BASE STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* BACKGROUND */
+body.admin-dashboard {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                url('image/about-us.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Update the sidebar toggle button CSS */
+.sidebar-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #ffeb3b;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-toggle:hover {
+    background: rgba(255, 235, 59, 0.2);
+    transform: scale(1.1);
+}
+
+/* When sidebar is collapsed, position the button over the sidebar area */
+.admin-sidebar.collapsed + .sidebar-toggle,
+.sidebar-toggle.show-when-collapsed {
+    left: 20px;
+}
+
+/* When sidebar is expanded, position the button at the edge */
+.sidebar-toggle.show-when-expanded {
+    left: 260px;
+}
+
+/* Ensure the toggle icon rotates smoothly */
+#toggleIcon {
+    transition: transform 0.3s ease;
+}
+
+.admin-sidebar.collapsed ~ * #toggleIcon,
+#toggleIcon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Make sure sidebar header doesn't have the old toggle button styles */
+.sidebar-header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 235, 59, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: flex;
+    }
+    
+    /* On mobile, always show toggle button at left edge when sidebar is hidden */
+    .admin-sidebar.collapsed + .sidebar-toggle {
+        left: 20px;
+    }
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
+    height: 100vh;
+    position: fixed;
+    width: 280px;
+    padding: 0;
+    border-right: 2px solid #ffeb3b;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    top: 0;
+    left: 0;
+}
+
+.admin-sidebar.collapsed {
+    transform: translateX(-280px);
+}
+
+.sidebar-header {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 235, 59, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.admin-sidebar h1 {
+    color: #ffeb3b;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    padding: 20px 0;
+    letter-spacing: 1px;
+}
+
+.admin-sidebar .nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    list-style: none;
+    padding: 20px 15px;
+    flex-grow: 1;
+}
+
+.admin-sidebar .nav-links a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+}
+
+.admin-sidebar .nav-links a:hover {
+    background: rgba(255, 235, 59, 0.15);
+    color: #ffeb3b;
+    transform: translateX(5px);
+}
+
+.admin-sidebar .nav-links a.active {
+    background: rgba(255, 87, 34, 0.2);
+    color: #ff5722;
+    font-weight: 600;
+}
+
+.admin-sidebar .nav-links a i {
+    margin-right: 12px;
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: 280px;
+    padding: 30px 40px;
+    transition: all 0.3s ease;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: calc(100% - 280px);
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 0;
+    width: 100%;
+}
+
+/* CONTENT HEADER */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.page-title {
+    color: #ffeb3b;
+    font-size: 28px;
+    margin: 0;
+    font-weight: 600;
+}
+
+.current-date {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(255, 235, 59, 0.3);
+    white-space: nowrap;
+}
+
+/* Settings Dropdown */
+.settings-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.settings-btn {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffeb3b;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 235, 59, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.settings-btn:hover {
+    background: rgba(255, 235, 59, 0.2);
+    transform: rotate(30deg);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 5px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(30, 30, 30, 0.9) 100%);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 235, 59, 0.2);
+}
+
+.dropdown-content a {
+    color: rgba(255, 255, 255, 0.9);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background: rgba(255, 235, 59, 0.15);
+    color: #ffeb3b;
+}
+
+.dropdown-content a i {
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+/* WELCOME SECTION */
+.admin-welcome {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%);
+    padding: 30px;
+    margin: 0 0 40px 0;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 235, 59, 0.2);
+}
+
+.admin-welcome h2 {
+    color: #ffeb3b;
+    font-size: 2.2em;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.admin-welcome p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* SUMMARY SECTION */
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+    width: 100%;
+}
+
+.summary-card {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(30, 30, 30, 0.7) 100%);
+    color: #ffeb3b;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 235, 59, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 140px;
+}
+
+.summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #ffeb3b;
+}
+
+.summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 235, 59, 0.3);
+}
+
+.summary-card h4 {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.summary-card p {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+    color: #ffeb3b;
+}
+
+.summary-icon {
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: rgba(255, 235, 59, 0.7);
+}
+
+/* CARDS SECTION */
+.admin-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+    width: 100%;
+}
+
+.admin-card {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(30, 30, 30, 0.75) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 235, 59, 0.1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 235, 59, 0.3);
+}
+
+.admin-card h3 {
+    color: #ffeb3b;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+.admin-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffeb3b;
+}
+
+.admin-card p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 15px 0 0 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.card-icon {
+    font-size: 2.5em;
+    color: rgba(255, 235, 59, 0.5);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .main-content {
+        padding: 30px 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .admin-sections {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .dashboard-summary {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: flex;
+    }
+    
+    .admin-sidebar {
+        transform: translateX(-280px);
+    }
+    
+    .admin-sidebar.collapsed {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .main-content.sidebar-collapsed {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .content-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+    }
+    
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .page-title {
+        font-size: 24px;
+        text-align: center;
+    }
+    
+    .dashboard-summary {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+    
+    .admin-welcome {
+        padding: 25px;
+    }
+    
+    .admin-welcome h2 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 576px) {
+    .dashboard-summary {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-welcome, 
+    .admin-card {
+        padding: 20px;
+    }
+    
+    .main-content {
+        padding: 15px;
+    }
+    
+    .page-title {
+        font-size: 20px;
+    }
+    
+    .admin-welcome h2 {
+        font-size: 1.5em;
+    }
+    
+    .summary-card {
+        min-height: 120px;
+        padding: 20px;
+    }
+    
+    .summary-card p {
+        font-size: 1.5em;
+    }
+    
+    .content-header {
+        margin-bottom: 20px;
+    }
+    
+    .header-actions {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+/* UTILITY CLASSES */
+.text-center {
+    text-align: center;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #2e3b4e;
+    color: white;
+}
+
+.sidebar-profile {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.profile-pic {
+    font-size: 28px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic img {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-info {
+    line-height: 1.2;
+}
+
+.profile-name {
+    font-weight: bold;
+    display: block;
+    font-size: 14px;
+}
+
+.profile-role {
+    font-size: 12px;
+    color: #ccc;
+    text-transform: capitalize;
+    display: block;
+}
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ff8a00; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+
+.profile-initials {
+    display: block;
+}

@@ -1,0 +1,110 @@
+/* Login and Signup Page Styles */
+.login-container {
+    padding: 50px 0;
+    min-height: calc(100vh - 400px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+.login-content {
+    background-color: black;
+    color: white;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 0, 0.5);
+    text-align: center;
+}
+
+.login-content h1 {
+    color: yellow;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.form-section {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #222;
+    color: white;
+}
+
+select {
+    height: 42px;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.login-btn {
+    background-color: yellow;
+    color: black;
+    padding: 12px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: 0.3s ease-in-out;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.login-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.yellow-link {
+    color: yellow;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.yellow-link:hover {
+    color: white;
+    text-decoration: underline;
+}
+/* Message Styling */
+.error-message,
+.success-message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: #ff6666;
+    border: 1px solid #ff6666;
+}
+
+.success-message {
+    background-color: rgba(0, 255, 0, 0.2);
+    color: #66ff66;
+    border: 1px solid #66ff66;
+}

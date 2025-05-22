@@ -1,0 +1,86 @@
+[2025-05-22 13:24:57] USER_CRUD DEBUG: Script started - Request method: POST
+[2025-05-22 13:24:57] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 13:24:57] USER_CRUD DEBUG: POST data received: Array
+(
+    [first_name] => 1111
+    [last_name] => xzvxz
+    [username] => 9999
+    [email] => marielacabo@gmail.com
+    [password] => Test12345
+    [package] => vip
+    [status] => expired
+)
+
+[2025-05-22 13:24:57] USER_CRUD DEBUG: Redirecting to users.php
+[2025-05-22 13:26:21] USER_CRUD DEBUG: Script started - Request method: POST
+[2025-05-22 13:26:21] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 13:26:21] USER_CRUD DEBUG: POST data received: Array
+(
+    [first_name] => 1
+    [last_name] => 1
+    [username] => admin
+    [email] => carpentero.kate08@gmail.com
+    [password] => admin12345
+    [package] => basic
+    [status] => active
+)
+
+[2025-05-22 13:26:21] USER_CRUD DEBUG: Redirecting to users.php
+[2025-05-22 14:14:52] USER_CRUD DEBUG: Script started - Request method: POST
+[2025-05-22 14:14:52] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 14:14:52] USER_CRUD DEBUG: POST data received: Array
+(
+    [first_name] => Diao
+    [last_name] => Carlo
+    [username] => Diao Handsome
+    [email] => diao@12345.com
+    [password] => Diao@12345
+    [package] => vip
+    [status] => active
+)
+
+[2025-05-22 14:14:52] USER_CRUD DEBUG: Redirecting to users.php
+[2025-05-22 14:38:34] USER_CRUD DEBUG: Script started - Request method: GET
+[2025-05-22 14:38:34] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 14:38:35] USER_CRUD DEBUG: Attempting to delete user ID: 22
+[2025-05-22 14:38:35] USER_CRUD DEBUG: User deleted successfully
+[2025-05-22 14:47:35] USER_CRUD DEBUG: Script started - Request method: POST
+[2025-05-22 14:47:35] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 14:47:35] USER_CRUD DEBUG: POST data received: Array
+(
+    [first_name] => test
+    [last_name] => tes
+    [username] => Test001
+    [email] => carpentero.kate08@gmail.com
+    [password] => Test123
+    [package] => vip
+    [status] => active
+)
+
+[2025-05-22 14:47:35] USER_CRUD DEBUG: Redirecting to users.php
+REQUEST_METHOD: POST
+POST DATA: Array
+(
+    [first_name] => test
+    [last_name] => tes
+    [username] => Test
+    [email] => 123456@gmail.com
+    [password] => Test123456
+    [package] => premium
+    [status] => expired
+)
+
+[2025-05-22 14:59:05] USER_CRUD DEBUG: Script started - Request method: POST
+[2025-05-22 14:59:05] USER_CRUD DEBUG: Database connected successfully
+[2025-05-22 14:59:05] USER_CRUD DEBUG: POST data received: Array
+(
+    [first_name] => test
+    [last_name] => tes
+    [username] => Test
+    [email] => 123456@gmail.com
+    [password] => Test123456
+    [package] => premium
+    [status] => expired
+)
+
+[2025-05-22 14:59:05] USER_CRUD DEBUG: Redirecting to users.php
